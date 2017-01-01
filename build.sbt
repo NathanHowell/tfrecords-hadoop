@@ -17,6 +17,8 @@ assemblyShadeRules in assembly ++=
   ShadeRule.rename("com.google.protobuf.**" -> "protobuf3.@1").inAll ::
     // we need a newer guava for crc32 hashing
     ShadeRule.rename("com.google.common.**" -> "guava20.@1").inAll ::
+    // Shade the thirdparty files
+    ShadeRule.rename("com.google.thirdparty.**" -> "guava20.@1").inAll ::
     Nil
 
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
